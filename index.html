@@ -3,98 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المهمة 4: برنامج Java لإدخال بيانات المستخدم</title>
+    <title>نموذج إدخال بيانات المستخدم</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             padding: 20px;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             background-color: #f4f4f4;
         }
-        h1, h2 {
-            color: #333;
-        }
-        pre {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 15px;
-            overflow-x: auto;
-        }
-        code {
-            font-family: 'Courier New', Courier, monospace;
-        }
-        .section {
+        .input-form, .output {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 15px;
             margin-bottom: 20px;
         }
-        .preview {
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .output {
             background-color: #e7f3fe;
-            border-right: 3px solid #2196F3;
-            padding: 10px;
-            margin-top: 20px;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <h1>المهمة 4: برنامج Java لإدخال بيانات المستخدم</h1>
-    
-    <div class="section">
-        <h2>الكود البرمجي:</h2>
-        <pre><code>
-import java.util.Scanner;
-
-public class task42 {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        
-        System.out.println("Enter your name: ");
-        String x = in.nextLine();
-        
-        System.out.println("Enter your age: ");
-        int y = in.nextInt();
-        
-        System.out.println("Enter your favorite number: ");
-        int z = in.nextInt();
-        
-        System.out.print("your name is " + x + ",");
-        System.out.print(" you are " + y + " years old,");
-        System.out.print(" and your favorite number is " + z);
-    }
-}
-        </code></pre>
+    <div class="input-form">
+        <h2>إدخال البيانات:</h2>
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="number" id="age" placeholder="Enter your age">
+        <input type="number" id="favNumber" placeholder="Enter your favorite number">
+        <button onclick="showOutput()">عرض النتيجة</button>
     </div>
+    <div id="output" class="output"></div>
 
-    <div class="section">
-        <h2>شرح البرنامج:</h2>
-        <ol>
-            <li>يستخدم الصنف Scanner لقراءة مدخلات المستخدم.</li>
-            <li>يطلب من المستخدم إدخال اسمه (x)، عمره (y)، ورقمه المفضل (z).</li>
-            <li>يقرأ هذه المدخلات ويخزنها في المتغيرات المناسبة.</li>
-            <li>يطبع جملة واحدة تحتوي على جميع المعلومات التي أدخلها المستخدم.</li>
-        </ol>
-        <p>ملاحظة: هذا البرنامج لا يغلق الـ Scanner في النهاية، وهو ما قد يُعتبر ممارسة جيدة في البرامج الأكبر لتجنب تسرب الموارد.</p>
-    </div>
-
-    <div class="section preview">
-        <h2>محاكاة تشغيل البرنامج:</h2>
-        <pre>
-Enter your name: 
-أحمد
-
-Enter your age: 
-28
-
-Enter your favorite number: 
-42
-
-your name is أحمد, you are 28 years old, and your favorite number is 42
-        </pre>
-    </div>
+    <script>
+        function showOutput() {
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var favNumber = document.getElementById('favNumber').value;
+            var output = document.getElementById('output');
+            output.innerHTML = `your name is ${name}, you are ${age} years old, and your favorite number is ${favNumber}`;
+            output.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
